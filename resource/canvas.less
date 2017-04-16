@@ -1,0 +1,44 @@
+/* canvas版本五子棋样式文件 */
+@import './base.less';
+.chess-container {
+    display:block;
+    position: relative;
+    box-shadow: -2px -2px 2px #efefef, 5px 5px 5px #b9b9b9;
+}
+.chess-board {
+    position: absolute;
+    left: 0px; top: 0px;
+    cursor: pointer;
+}
+.main {
+    width: 450px;
+    margin:50px auto;
+}
+.regret {
+    margin-top: 40px;
+    margin-left: 40px;
+    float: left;
+    cursor: pointer;
+    width: 120px;
+    padding: 10px 10px;
+    border: 2px solid #ff8100;
+    outline:none;
+    border-radius: 10px;
+    background: linear-gradient(orange, #ff8d00);
+    color: #fff;
+    font-size: 20px;
+    -webkit-transition: all .05s ease-out;
+    -moz-transition: all .05s ease-out;
+    transition: all .05s ease-out;
+    &:hover {
+        -webkit-transform: scale(1.05);
+        -moz-transform: scale(1.05);
+        transform: scale(1.05);
+    }
+}
+.cancel {
+    .regret;
+    margin-right: 40px;
+    float: right;
+}
+

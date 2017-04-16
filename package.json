@@ -1,0 +1,16 @@
+{
+  "name": "five-chess",
+  "version": "1.0.0",
+  "description": "a five-chess demo based on dom and canvas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sysuzhyupeng",
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^2.28.0",
+    "webpack": "^1.13.1",
+    "less": "^2.7.2"
+  }
+}
