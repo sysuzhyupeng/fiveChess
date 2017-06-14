@@ -1,5 +1,5 @@
 # fiveChess
-create a fiveChess using DOM and canvas
+
 
 需求：用 Web 技术实现一个五子棋（不用考虑人机对战）
 需要 Dom 和 Canvas 两个版本
@@ -8,3 +8,6 @@ create a fiveChess using DOM and canvas
 
 dom版本在dom.html中
 canvas版本在canvas.html中
+
+
+![image](https://github.com/sysuzhyupeng/leetCode/raw/master/img/never.jpg)
