@@ -4,21 +4,30 @@
 /*
  	加载器语法
  	module: {
-		loaders: [{
-			test: RegEx,
-			loader: 'style-loader!css-loader'
-		}, ]
-	}  
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' }
+        ]
+      }
+    ]
+  }
 */
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
+var webpack = require('webpack');
+//全局变量检测生产环境
+var ENV = process.env.NODE_ENV;
+
 
 var PATHS = {
 	app: path.join(__dirname, 'app/index'),
 	dist: path.join(__dirname, 'dist')
 };
 
-module.exports = {
+var baseConfig = {
 	entry: {
 		app: PATHS.app,
 	},
@@ -27,15 +36,49 @@ module.exports = {
 		filename: '[name].js',
 	},
 	module: {
-		loaders: [{
+		rules: [{
 			test: /\.css$/,
-			loader: 'style-loader!css-loader'
+			use: [{
+				loader: 'style-loader'
+			}, {
+				loader: 'css-loader'
+			}]
 		}, {
 			test: /\.less$/,
-			loader: 'style!css!less'
+			use: [{
+				loader: 'style-loader'
+			}, {
+				loader: 'css-loader'
+			}, {
+				loader: 'less-loader'
+			}]
+		}, {
+			//识别url，将png替换成base64
+			test: /\.svg$/,
+			use: [{
+				loader: 'url-loader',
+				query: {
+					limit: 10000
+				}
+			}]
 		}]
-	}
+	},
+	//插件（Plugins）是用来拓展Webpack功能的,插件并不直接操作单个文件，它直接对整个构建过程其作用。
+	plugins: [
+		new webpack.DefinePlugin({
+			'process.env.NODE_ENV': JSON.stringify(ENV)
+		}),
+		new webpack.optimize.UglifyJsPlugin({
+			sourceMap: false,
+			mangle: false
+		})
+	]
 };
+//使用UglifyJS压缩
+if (ENV === 'production') {
+	// baseConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({sourceMap: false,mangle: false}));
+}
 devServer: {
 	inline: true
 }
+module.exports = baseConfig
