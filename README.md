@@ -7,7 +7,9 @@
 实现一个撤销悔棋的功能
 
 npm install之后:
+
 dom版本：npm run dom自动在localhost中查看
+
 canvas版本在canvas.html中
 
 
