@@ -2,7 +2,6 @@
 //加载less或者css文件均可
 require('../resource/dom.less');
 var fiveChess = require('./fiveChess');
-var a = 1;
 //Dom版本和canvas版本主要区别在UI上，只需要对canvas版本的UI方法进行重写
 fiveChess.bindEvent = function() {
 	var that = this;
