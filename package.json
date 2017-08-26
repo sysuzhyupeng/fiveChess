@@ -4,8 +4,8 @@
   "description": "a five-chess demo based on dom and canvas",
   "main": "index.js",
   "scripts": {
-    "dom": "NODE_ENV=development webpack-dev-server --open --inline",
-    "canvas": "NODE_ENV=production webpack --config webpack.dev.config.js",
+    "dom": "webpack-dev-server --open --inline",
+    "canvas": "webpack --config webpack.dev.config.js",
     "build": "NODE_ENV=production webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
